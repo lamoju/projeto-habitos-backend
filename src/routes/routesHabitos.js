@@ -1,9 +1,12 @@
-import { Router } from "express"
+//Arquivo de rotas para usuários//
 
-const router = Router()
+//import { Router } from "express"
 
-router.get('/test', (req, res) => {
-    return res.send("momo chatao")
-})
+const express = require('express')
+const router = express.Router()
+const controllerHabitos = require('../controllers/controllerHabitos')
 
-export { router }
+router.get('/test', controllerHabitos.teste)
+
+//export { router }
+module.exports = router

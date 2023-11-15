@@ -1,5 +1,10 @@
-import express from 'express'
-import router  from './routesHabitos'
+//Inicialização do servidor//
+
+//import express from 'express'
+//import router  from './routesHabitos.js'
+
+const express = require('express');
+const router = require('./routesHabitos.js');
 
 const server = express()
 
@@ -8,4 +13,4 @@ server.use(express.json());
 
 server.use(router)
 
-export { server }
+module.exports = server
