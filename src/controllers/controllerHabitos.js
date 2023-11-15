@@ -20,6 +20,37 @@ const getAllHabitos = async (req, res) => {
     try {
         const habitos = await Habito.find()
         res.json(habitos)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+const updateHabito = async (req, res) => {
+    const { id } = req.params
+    const { habito } = req.body
+    try {
+        const attHabito = await Habito.findByIdAndUpdate(
+            id,
+            { habito },
+            { new: true }
+        )
+        if (!attHabito) {
+            return res.status(404).json({ error: "Hábito não encontrado" })
+        }
+        res.json(attHabito)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+const deleteHabito = async (req, res) => {
+    const { id } = req.params
+    try {
+        const habito = await Habito.findByIdAndDelete(id)
+        if(!habito) {
+            return res.status(404).json({ error: "Hábito não encontrado" })
+        }
+        res.json( {mensagem: "Hábito deletado com sucesso!" })
     } catch (error){
         res.status(500).json({ error: error.message })
     }
@@ -28,5 +59,7 @@ const getAllHabitos = async (req, res) => {
 module.exports = {
     healthCheck,
     createHabito,
-    getAllHabitos
+    getAllHabitos,
+    updateHabito,
+    deleteHabito
 }
