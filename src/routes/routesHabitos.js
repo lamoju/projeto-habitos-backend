@@ -6,7 +6,9 @@ const express = require('express')
 const router = express.Router()
 const controllerHabitos = require('../controllers/controllerHabitos')
 
-router.get('/test', controllerHabitos.teste)
+router.get('/healthcheck', controllerHabitos.healthCheck)
+router.post('/habitos', controllerHabitos.createHabito)
+router.get('/habitos', controllerHabitos.getAllHabitos)
 
 //export { router }
 module.exports = router
