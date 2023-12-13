@@ -25,6 +25,16 @@ const getAllHabitos = async (req, res) => {
     }
 }
 
+const getHabito = async (req, res) => {    
+    try {
+        const id_habito = req.params.id
+        const habito = await Habito.findById(id_habito)
+        res.json(habito)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
 const updateHabito = async (req, res) => {
     const { id } = req.params
     const { habito } = req.body
@@ -60,6 +70,7 @@ module.exports = {
     healthCheck,
     createHabito,
     getAllHabitos,
+    getHabito,
     updateHabito,
     deleteHabito
 }
