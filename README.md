@@ -1,2 +1,2 @@
 # projeto-habitos
-Projeto piloto de aplicação de registro de Hábitos  
+Projeto de Back-end para aplicação de registro de Hábitos
