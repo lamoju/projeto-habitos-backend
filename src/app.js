@@ -4,6 +4,7 @@
 const express = require('express')
 const connectDB = require('./database/database')
 const routesHabitos = require('./routes/routesHabitos')
+const routesHistorico = require('./routes/routesHistorico')
 
 const app = express()
 
@@ -14,7 +15,8 @@ app.use(express.json());
 connectDB()
 
 //redirecionar rotas
-app.use('/', routesHabitos)
+app.use('/habitos', routesHabitos)
+app.use('/historico', routesHistorico)
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");

@@ -7,10 +7,11 @@ const router = express.Router()
 const controllerHabitos = require('../controllers/controllerHabitos')
 
 router.get('/healthcheck', controllerHabitos.healthCheck)
-router.post('/habitos', controllerHabitos.createHabito)
-router.get('/habitos', controllerHabitos.getAllHabitos)
-router.patch('/habitos/:id', controllerHabitos.updateHabito)
-router.delete('/habitos/:id', controllerHabitos.deleteHabito)
+router.post('/', controllerHabitos.createHabito)
+router.get('/', controllerHabitos.getAllHabitos)
+router.get('/:id', controllerHabitos.getHabito)
+router.patch('/:id', controllerHabitos.updateHabito)
+router.delete('/:id', controllerHabitos.deleteHabito)
 
 //export { router }
 module.exports = router
