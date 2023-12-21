@@ -1,5 +1,5 @@
 # projeto-habitos-backend
-Projeto piloto de aplicação de registro de Hábitos  
+Projeto de Back-end para aplicação de registro de Hábitos
 
 # Passos para executar a aplicação:
 
