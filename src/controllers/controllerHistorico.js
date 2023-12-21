@@ -30,17 +30,16 @@ const getDayHistorico = async (req, res) => {
         const habitos = await Habito.find()
         var habitosArray = []
         for (let i = 0; i<habitos.length; i++){
-            const encontrouString = historico.some(objeto => {                
+            const statusHabito = historico.some(objeto => {                
                 return objeto.nome_habito === habitos[i].habito
             })
             var habitao = habitos[i].habito
-            console.log(habitao)
-            var obj = {habitao: encontrouString}
+            var obj = {}
+            obj[habitao] = statusHabito
             habitosArray.push(obj)
         }
-        console.log(habitosArray)
-        
-        res.json(historico)
+                
+        res.json(habitosArray)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
